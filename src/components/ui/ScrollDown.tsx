@@ -10,16 +10,9 @@ const ScrollDown = ({ revealed }: { revealed: boolean }) => {
           transition: "opacity 1s ease 2.6s",
         }}
       >
-        <RevealText
-          as="h1"
-          trigger="instant"
-          mode="sentence"
-          delay={8.6}
-          duration={0.8}
-          className="text-white/50 text-xs tracking-[0.35em] uppercase font-light"
-        >
-          Scroll
-        </RevealText>
+        <h1 className="text-white/50 text-xs tracking-[0.35em] uppercase font-light">
+          <RevealText text={"Scroll"} delay={8.6} duration={0.8} />
+        </h1>
         <div className="w-px h-12 bg-white/20 relative overflow-hidden rounded-full">
           <div
             className="absolute top-0 left-0 w-full rounded-full bg-white"
