@@ -21,14 +21,14 @@ const AboutUs = () => {
         <div className="flex flex-row gap-4">
           <div className="w-[40%] flex flex-col justify-between">
             <Image
-              src="/woman1.png"
+              src="/Woman1.png"
               alt="Woman 2"
               width={500}
               height={300}
               className="mt-20"
             />
             <Image
-              src="/woman3.png"
+              src="/Woman3.png"
               alt="Woman 2"
               width={500}
               height={300}
@@ -37,7 +37,7 @@ const AboutUs = () => {
           </div>
           <div className="w-[60%] flex flex-col justify-between">
             <Image
-              src="/woman2.png"
+              src="/Woman2.png"
               alt="Woman 3"
               width={500}
               height={300}
@@ -90,7 +90,7 @@ const AboutUs = () => {
         <div className="flex flex-row gap-4">
           <div className="w-[60%]">
             <Image
-              src="/woman3.png"
+              src="/Woman3.png"
               alt="Woman 3"
               width={1000}
               height={1000}
@@ -123,9 +123,9 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="w-[40%] flex flex-col justify-between">
-            {/* <Image src="/woman2.png" alt="Woman 2" width={500} height={300} /> */}
+            {/* <Image src="/Woman2.png" alt="Woman 2" width={500} height={300} /> */}
             <Image
-              src="/woman1.png"
+              src="/Woman1.png"
               alt="Woman 3"
               width={1000}
               height={1000}
