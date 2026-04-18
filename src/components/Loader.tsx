@@ -27,18 +27,13 @@ export default function WeddingLoader({ onComplete }: WeddingLoaderProps) {
   }, []);
 
   const handleCountEnd = () => {
-    // Give the spring extra time to visually settle at 100 before doing anything
-    // duration=3s + delay=0.2s = 3.2s total, add 0.8s buffer for spring settle = 4s
-    // onEnd fires at ~3.2s, we wait another 800ms here before reveal
     setTimeout(() => {
       setPhase("reveal");
 
-      // 0.5s pause showing names, then start exit
       setTimeout(() => {
         setPhase("exit");
         window.scrollTo(0, 0);
 
-        // fire onComplete 600ms into the 1600ms fade — smooth crossfade
         setTimeout(() => {
           document.documentElement.style.overflow = "";
           onComplete?.();
@@ -80,7 +75,6 @@ export default function WeddingLoader({ onComplete }: WeddingLoaderProps) {
       {/* Names — fade in after count settles */}
       <div
         style={{
-          marginTop: "1.5rem",
           opacity: phase === "reveal" || phase === "exit" ? 1 : 0,
           transform:
             phase === "reveal" || phase === "exit"

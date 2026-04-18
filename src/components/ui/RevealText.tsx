@@ -68,7 +68,6 @@ export default function RevealText({
           key={i}
           style={{
             display: "inline-block",
-            overflow: "hidden",
           }}
         >
           <motion.span

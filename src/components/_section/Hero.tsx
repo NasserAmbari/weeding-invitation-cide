@@ -7,7 +7,7 @@ import ScrollDown from "../ui/ScrollDown";
 
 const playfair = Playfair({ subsets: ["latin"] });
 
-const IMAGES = ["/Hero.png", "/Hero2.png", "/Hero3.png"];
+const IMAGES = ["/Hero.webp", "/Hero2.webp", "/Hero3.webp"];
 
 interface HeroProps {
   revealed?: boolean;

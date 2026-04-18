@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <main className="w-full bg-[#FEF2E8] overflow-x-hidden">
-      <Loader onComplete={() => setReveal(true)} />
+      {/* <Loader onComplete={() => setReveal(true)} /> */}
 
       <div
         style={{
@@ -38,7 +38,6 @@ export default function Home() {
             strokeWidth={1.5}
             seed={7}
           />
-
           <Story />
           <AboutUs />
         </div>

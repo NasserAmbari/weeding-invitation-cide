@@ -46,7 +46,7 @@ const AboutUs = () => {
             <div className="md:col-span-1 flex flex-col mt-4 md:mt-12">
               <h3 className="font-bold text-4xl md:text-6xl">
                 <RevealText
-                  text={`Robi`}
+                  text={`Robby`}
                   duration={0.3}
                   stagger={0.15}
                   delay={0.4}
@@ -96,7 +96,7 @@ const AboutUs = () => {
               height={1000}
               className="col-span-1"
             />
-            <div className="md:col-span-1 flex flex-col mt-4 md:mt-12">
+            <div className="md:col-span-1 flex flex-col mt-4 md:mt-12 ml-4">
               <h3 className="font-bold text-4xl md:text-6xl">
                 <RevealText
                   text={`Cindia`}
