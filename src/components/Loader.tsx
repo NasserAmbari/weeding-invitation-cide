@@ -72,7 +72,6 @@ export default function WeddingLoader({ onComplete }: WeddingLoaderProps) {
         </span>
       </div>
 
-      {/* Names — fade in after count settles */}
       <div
         style={{
           opacity: phase === "reveal" || phase === "exit" ? 1 : 0,
@@ -90,7 +89,7 @@ export default function WeddingLoader({ onComplete }: WeddingLoaderProps) {
             fontFamily: "'Cormorant Garamond', serif",
           }}
         >
-          Roby &amp; Cindy
+          Cindia &amp; Robby
         </p>
       </div>
     </div>

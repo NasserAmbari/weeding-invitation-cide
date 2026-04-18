@@ -28,7 +28,7 @@ const Hero = ({ revealed = false }: HeroProps) => {
       />
 
       {/* Main text content */}
-      <div className="relative -translate-y-10 lg:translate-y-0 z-10 w-full h-[60vh] md:h-[55vh] lg:h-[70vh] flex flex-col p-4 md:p-8 text-white gap-8">
+      <div className="relative -translate-y-10 lg:translate-y-0 z-10 w-full h-[50vh] md:h-[55vh] lg:h-[70vh] flex flex-col p-4 md:p-8 text-white gap-8">
         <h1 className="text-center">
           <RevealText
             text="You're Invited to Celebrate The Wedding of"
@@ -43,7 +43,7 @@ const Hero = ({ revealed = false }: HeroProps) => {
         <div className="w-[90%] md:w-2/4 lg:w-2/5 mx-auto flex flex-col gap-2">
           <h1 className={`${playfair.className} text-8xl lg:text-9xl`}>
             <RevealText
-              text="Cindy"
+              text="Cindia"
               duration={0.3}
               stagger={0.15}
               mode="sentence"
@@ -67,7 +67,7 @@ const Hero = ({ revealed = false }: HeroProps) => {
             className={`${playfair.className} text-8xl lg:text-9xl text-center`}
           >
             <RevealText
-              text="Roby"
+              text="Robby"
               duration={0.3}
               stagger={0.15}
               mode="sentence"

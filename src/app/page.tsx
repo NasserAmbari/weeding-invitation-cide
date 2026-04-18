@@ -10,6 +10,7 @@ import AboutUs from "@/components/_section/AboutUs";
 import DetailVenue from "@/components/_section/DetailVenue";
 import ScrollSnakeLine from "@/components/ui/Snakeline";
 import Gift from "@/components/_section/Gift";
+import { CountdownTimer } from "@/components/ui/CountDown";
 
 export default function Home() {
   const [reveal, setReveal] = useState(true);
@@ -38,6 +39,7 @@ export default function Home() {
             strokeWidth={1.5}
             seed={7}
           />
+          <CountdownTimer targetDate={"2026-04-26T08:00:00"} />
           <Story />
           <AboutUs />
         </div>

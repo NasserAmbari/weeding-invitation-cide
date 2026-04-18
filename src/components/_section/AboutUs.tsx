@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const AboutUs = () => {
   return (
-    <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col py-12 gap-40 text-black justify-center items-center mx-auto">
-      <div className="flex flex-col gap-4 items-center">
+    <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col py-12 gap-80 text-black justify-center items-center mx-auto">
+      <div className="flex flex-col gap-8 items-center">
         <div className="flex">
           <h3 className="w-[50%] lg:w-full font-bold text-6xl md:text-8xl ">
             <RevealText
@@ -108,7 +108,7 @@ const AboutUs = () => {
                 />
               </h3>
 
-              <h3 className="text-sm md:text-2xl italictext-gray-500 mt-4">
+              <h3 className="text-sm md:text-2xl italic text-gray-500 mt-4">
                 <RevealText
                   text={`Born in 1995 in Hiroshima Prefecture After graduating from
                 university, began her career as a sales representative at a
