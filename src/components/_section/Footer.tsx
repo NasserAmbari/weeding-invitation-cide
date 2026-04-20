@@ -17,10 +17,9 @@ const Footer = () => {
       <div className="absolute inset-0 bg-black/60" />
 
       {/* Teks di tengah */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white text-center px-8 text-3xl">
-        <RevealText text="Thank You" trigger="viewport" duration={0.5} />
+      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white text-center px-8 text-sm md:text-sm lg:text-xl">
         <RevealText
-          text="For Your Attendance And Support"
+          text="Thank you for your attendance and support"
           trigger="viewport"
           duration={0.5}
         />
