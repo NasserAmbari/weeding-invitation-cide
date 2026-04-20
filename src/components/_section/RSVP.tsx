@@ -4,15 +4,29 @@ import { useState, useEffect } from "react";
 import RevealText from "@/components/ui/RevealText";
 import { createRSVP } from "@/service/api";
 
-const API_BASE_URL = "http://localhost:4000";
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000";
 
 type AttendanceStatus = "Hadir" | "Tidak Hadir" | "Tentative";
 
 interface RSVPMessage {
-  name: string;
+  fullname: string;
   message: string;
   attendance: string;
 }
+
+const getBadgeStyle = (status: string) => {
+  switch (status) {
+    case "Hadir":
+      return "text-emerald-400 bg-emerald-500/10 border-emerald-500/20";
+    case "Tidak Hadir":
+      return "text-rose-400 bg-rose-500/10 border-rose-500/20";
+    case "Tentative":
+      return "text-amber-400 bg-amber-500/10 border-amber-500/20";
+    default:
+      return "text-gray-400 bg-neutral-800 border-neutral-700";
+  }
+};
 
 const RSVP = () => {
   const [formData, setFormData] = useState({
@@ -28,6 +42,7 @@ const RSVP = () => {
     const fetchMessages = async () => {
       try {
         const res = await fetch(API_BASE_URL + "/api/rsvpSecond/2/somedata");
+        console.log(API_BASE_URL);
         const json = await res.json();
         const dataArray = Array.isArray(json) ? json : json.data || [];
         setMessages(dataArray.slice(0, 4));
@@ -46,7 +61,7 @@ const RSVP = () => {
       if (result.success) {
         setMessages((prev) => {
           const newMsg = {
-            name: formData.fullname,
+            fullname: formData.fullname,
             message: formData.message,
             attendance: formData.attendance,
           };
@@ -232,12 +247,14 @@ const RSVP = () => {
               <div className="flex justify-between items-center border-b border-neutral-800 pb-2">
                 <span className="font-semibold text-gray-200 text-lg">
                   <RevealText
-                    text={msg.name}
+                    text={msg.fullname}
                     trigger="viewport"
                     duration={0.5}
                   />
                 </span>
-                <span className="text-xs text-gray-500 italic bg-neutral-900 px-2 py-1 rounded-full whitespace-nowrap">
+                <span
+                  className={`text-xs italic px-2 py-1 rounded-full whitespace-nowrap border ${getBadgeStyle(msg.attendance)}`}
+                >
                   <RevealText
                     text={msg.attendance}
                     trigger="viewport"

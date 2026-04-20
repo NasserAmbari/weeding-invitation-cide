@@ -5,6 +5,8 @@ import ImageSlideshow from "@/components/ui/ImageSlideshow";
 import { Playfair } from "next/font/google";
 import ScrollDown from "../ui/ScrollDown";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const playfair = Playfair({ subsets: ["latin"] });
 
@@ -14,9 +16,29 @@ interface HeroProps {
   revealed?: boolean;
 }
 
+const Greeting = ({ trigger }: { trigger: "none" | "viewport" }) => {
+  const searchParams = useSearchParams();
+  const to = searchParams.get("to");
+  const text = to
+    ? `Hallo ${to} \n, You're Invited to Celebrate The Wedding of`
+    : "You're Invited to Celebrate The Wedding of";
+
+  return (
+    <span>
+      <RevealText
+        text={text}
+        duration={0.3}
+        stagger={0.15}
+        delay={8.0}
+        trigger={trigger}
+        mode="sentence"
+      />
+    </span>
+  );
+};
+
 const Hero = ({ revealed = false }: HeroProps) => {
   const trigger = revealed ? "none" : "viewport";
-  console.log(trigger);
 
   return (
     <div className="w-full h-full flex items-center overflow-hidden">
@@ -29,16 +51,22 @@ const Hero = ({ revealed = false }: HeroProps) => {
           priority
         />
         <div className="absolute inset-0 bg-black/50 z-10" />
-        <div className="relative -translate-y-10 lg:translate-y-0 z-20 w-full h-[50vh] md:h-[55vh] lg:h-[70vh] flex flex-col p-4 md:p-8 text-white gap-8">
+        <div className="relative -translate-y-15 lg:translate-y-0 z-20 w-full flex flex-col p-4 md:p-8 text-white gap-8">
           <h1 className="text-center">
-            <RevealText
-              text="You're Invited to Celebrate The Wedding of"
-              duration={0.3}
-              stagger={0.15}
-              delay={8.0}
-              trigger={trigger}
-              mode="sentence"
-            />
+            <Suspense
+              fallback={
+                <RevealText
+                  text="You're Invited to Celebrate The Wedding of"
+                  duration={0.3}
+                  stagger={0.15}
+                  delay={8.0}
+                  trigger={trigger}
+                  mode="sentence"
+                />
+              }
+            >
+              <Greeting trigger={trigger} />
+            </Suspense>
           </h1>
 
           <div className="w-[90%] md:w-2/4 lg:w-2/5 mx-auto flex flex-col justify-content items-center gap-2">

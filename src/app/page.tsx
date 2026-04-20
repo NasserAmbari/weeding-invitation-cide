@@ -35,13 +35,13 @@ export default function Home() {
         <div className="h-screen" />
 
         <div className="relative bg-white">
-          <ScrollSnakeLine
+          {/* <ScrollSnakeLine
             segments={12}
             spread={0.65}
             color="#D2D2D2"
             strokeWidth={1.5}
             seed={7}
-          />
+          /> */}
           <div className="flex flex-col gap-40 py-24">
             <Story />
             <Quotes />

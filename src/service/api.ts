@@ -1,5 +1,6 @@
 import type { RSVPFormData } from "../schemas/rsvpSchema";
-const API_BASE_URL = "http://localhost:4000";
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000";
 
 export const createRSVP = async (data: RSVPFormData) => {
   try {

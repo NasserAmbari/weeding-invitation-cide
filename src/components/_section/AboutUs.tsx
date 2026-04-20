@@ -66,24 +66,17 @@ const AboutUs = () => {
           <div className="flex flex-row gap-4">
             <div className="w-[40%] flex flex-col justify-between">
               <Image
-                src="/Woman1.png"
-                alt="Woman 2"
+                src="/Cindia/1.webp"
+                alt="Cindia 1"
                 width={500}
                 height={300}
                 className="mt-20 w-auto h-auto"
               />
-              <Image
-                src="/Woman3.png"
-                alt="Woman 2"
-                width={500}
-                height={300}
-                className="mt-20 hidden w-auto h-auto"
-              />
             </div>
-            <div className="w-[60%] flex flex-col justify-between">
+            <div className="w-[60%]">
               <Image
-                src="/Woman2.png"
-                alt="Woman 3"
+                src="/Cindia/2.webp"
+                alt="Cindia 2"
                 width={500}
                 height={300}
                 className="col-span-1 w-auto h-auto"
@@ -100,7 +93,7 @@ const AboutUs = () => {
                   />
                 </h3>
 
-                <h3 className="text-sm md:text-2xl italictext-gray-500 mt-4">
+                <h3 className="text-sm md:text-2xl italic text-gray-500 mt-4">
                   <RevealText
                     text={`Putri Bungsi BP. Sukardiansyah & Ibu Zalrita Retno Dewi`}
                     duration={0.3}
@@ -140,11 +133,11 @@ const AboutUs = () => {
               />
             </h3>
 
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-4 ">
               <div className="w-[60%]">
                 <Image
-                  src="/Woman3.png"
-                  alt="Woman 3"
+                  src="/Robby/2.webp"
+                  alt="Robby 2"
                   width={1000}
                   height={1000}
                   className="col-span-1 w-auto h-auto"
@@ -175,8 +168,8 @@ const AboutUs = () => {
               </div>
               <div className="w-[40%] flex flex-col justify-between">
                 <Image
-                  src="/Woman1.png"
-                  alt="Woman 3"
+                  src="/Robby/1.webp"
+                  alt="Robby 1"
                   width={1000}
                   height={1000}
                   className="col-span-1 mt-30 w-auto h-auto"

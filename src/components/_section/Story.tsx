@@ -1,7 +1,12 @@
 import RevealText from "@/components/ui/RevealText";
 import ImageSlideshow from "@/components/ui/ImageSlideshow";
 
-const IMAGES = ["/Hero.webp", "/Hero2.webp", "/Hero3.webp"];
+const IMAGES = [
+  "/Slideshow_1.webp",
+  "/Slideshow_2.webp",
+  "/Slideshow_3.webp",
+  "/Slideshow_4.webp",
+];
 
 const Story = () => {
   return (
@@ -41,7 +46,7 @@ const Story = () => {
               images={IMAGES}
               interval={3000}
               fadeDuration={1500}
-              className="w-[90%] md:w-[70%] h-[30vh] md:h-[70vh] rounded-xl"
+              className="w-[90%] md:w-[70%] h-[30vh] md:h-[40vh] lg:h-[50vh]  rounded-xl"
             />
           </div>
 

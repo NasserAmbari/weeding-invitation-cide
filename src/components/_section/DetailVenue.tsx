@@ -37,7 +37,7 @@ const DetailVenue = () => {
 
               <h4 className="text-xl md:text-5xl italic text-gray-100">
                 <RevealText
-                  text="2025.10.12"
+                  text="02 Mei 2026"
                   trigger="viewport"
                   mode="sentence"
                   duration={0.8}
@@ -57,7 +57,7 @@ const DetailVenue = () => {
 
               <h4 className="text-xl md:text-5xl italic text-gray-100">
                 <RevealText
-                  text="20:10AM"
+                  text="10:00 Wita"
                   trigger="viewport"
                   mode="sentence"
                   duration={0.8}
@@ -90,7 +90,7 @@ const DetailVenue = () => {
 
               <h4 className="text-xl md:text-5xl italic text-gray-100">
                 <RevealText
-                  text="2025.10.12"
+                  text="02 Mei 2026"
                   trigger="viewport"
                   mode="sentence"
                   duration={0.8}
@@ -110,7 +110,7 @@ const DetailVenue = () => {
 
               <h4 className="text-xl md:text-5xl italic text-gray-100">
                 <RevealText
-                  text="20:10AM"
+                  text="12:00 Wita"
                   trigger="viewport"
                   mode="sentence"
                   duration={0.8}
@@ -120,19 +120,7 @@ const DetailVenue = () => {
           </div>
         </div>
 
-        {/* <CalendarCard /> */}
-
-        {/* <div className="flex flex-col gap-4 md:gap-8" onClick={goToMap}>
-          <h3 className="text-xl md:text-2xl italic text-gray-400 px-0.5">
-            <RevealText
-              text="Reception"
-              trigger="viewport"
-              mode="sentence"
-              duration={0.8}
-            />
-          </h3>
-        </div> */}
-        <CountdownTimer targetDate={"2026-04-26T08:00:00"} />
+        <CountdownTimer targetDate={"2026-05-02T10:00:00"} />
         <div className="flex flex-col items-center">
           <h4 className="text-3xl md:text-4xl italict text-center text-gray-100 mb-2">
             <RevealText
@@ -148,7 +136,6 @@ const DetailVenue = () => {
               src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3988.8865333845747!2d116.94186947496556!3d-1.2383055987498905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMcKwMTQnMTcuOSJTIDExNsKwNTYnNDAuMCJF!5e0!3m2!1sid!2sid!4v1776674831567!5m2!1sid!2sid"
               className="w-full h-full border-0"
               allowFullScreen
-              loading="lazy"
             />
           </div>
           <a href="https://maps.app.goo.gl/L4tebJBs7Hg1SZ8H9">

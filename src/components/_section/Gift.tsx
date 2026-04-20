@@ -35,7 +35,7 @@ const listAccount = [
 
 const Gift = () => {
   return (
-    <div className="flex flex-col gap-20 px-8 py-4 justify-center items-center">
+    <div className="flex flex-col gap-20 px-4 py-8 justify-center items-center">
       <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col gap-8">
         <h3 className="text-md md:text-2xl italic text-gray-400 text-center">
           <RevealText
@@ -46,7 +46,7 @@ const Gift = () => {
           />
         </h3>
 
-        <div className="grid grid-cols-1 w-[70%] self-center">
+        <div className="grid grid-cols-1 w-[100%] lg:w-[80%] self-center">
           {listAccount.map((item, index) => (
             <div
               key={index}
