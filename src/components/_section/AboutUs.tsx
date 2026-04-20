@@ -70,7 +70,7 @@ const AboutUs = () => {
                 alt="Cindia 1"
                 width={500}
                 height={300}
-                className="mt-20 w-auto h-auto"
+                className="mt-10 w-auto h-auto"
               />
             </div>
             <div className="w-[60%]">
@@ -172,7 +172,7 @@ const AboutUs = () => {
                   alt="Robby 1"
                   width={1000}
                   height={1000}
-                  className="col-span-1 mt-30 w-auto h-auto"
+                  className="col-span-1 mt-10 w-auto h-auto"
                 />
               </div>
             </div>
