@@ -44,8 +44,9 @@ const Story = () => {
           <div className="w-full flex flex-col items-center justify-center overflow-hidden my-3">
             <ImageSlideshow
               images={IMAGES}
-              interval={3000}
+              interval={2000}
               fadeDuration={1500}
+              showArrows={true}
               className="w-[90%] md:w-[70%] h-[30vh] md:h-[40vh] lg:h-[50vh]  rounded-xl"
             />
           </div>

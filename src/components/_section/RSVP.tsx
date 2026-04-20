@@ -225,7 +225,7 @@ const RSVP = () => {
       </div>
 
       {/* Messages Section */}
-      <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col gap-8 mt-12">
+      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-8 mt-12">
         <h3 className="text-2xl md:text-3xl italic text-center text-gray-100">
           <RevealText
             text="Wishes & Messages"

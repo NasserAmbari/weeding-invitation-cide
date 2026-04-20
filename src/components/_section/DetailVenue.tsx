@@ -13,7 +13,7 @@ const goToMap = () => {
 const DetailVenue = () => {
   return (
     <div className="flex flex-col gap-12 px-8 py-12 justify-center items-center">
-      <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col gap-24">
+      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-24">
         <div className="flex flex-col gap-4">
           <h3 className="text-3xl md:text-4xl italic text-center text-gray-100">
             <RevealText
