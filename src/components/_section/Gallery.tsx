@@ -49,7 +49,7 @@ export default function Gallery() {
         style={{ minHeight: "200vh", paddingBottom: "120px" }}
       >
         {/* Story text behind images */}
-        <div className="relative z-[1] px-10 pt-20 max-w-[42%] select-none">
+        <div className="relative z-1 px-10 pt-20 max-w-[42%] select-none">
           {STORY_TEXT.split("\n\n").map((para, i) => (
             <p
               key={i}
@@ -116,7 +116,7 @@ export default function Gallery() {
       {/* Lightbox */}
       {lightbox !== null && (
         <div
-          className="fixed inset-0 z-[9999] bg-black/92 flex items-center justify-center"
+          className="fixed inset-0 z-9999 bg-black/92 flex items-center justify-center"
           onClick={close}
         >
           <button
@@ -177,4 +177,15 @@ export default function Gallery() {
       )}
     </>
   );
+}
+
+{
+  /* <ImageSlideshow
+        images={IMAGES}
+        interval={5000}
+        fadeDuration={1500}
+        className="absolute inset-0"
+        imgClassName="grayscale"
+        overlay={<div className="w-full h-full bg-black/50" />}
+      /> */
 }

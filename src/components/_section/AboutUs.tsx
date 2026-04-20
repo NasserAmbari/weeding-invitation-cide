@@ -3,134 +3,186 @@ import Image from "next/image";
 
 const AboutUs = () => {
   return (
-    <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col py-12 gap-80 text-black justify-center items-center mx-auto">
-      <div className="flex flex-col gap-8 items-center">
-        <div className="flex">
-          <h3 className="w-[50%] lg:w-full font-bold text-6xl md:text-8xl ">
+    <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col gap-16 lg:gap-16 text-black justify-center items-center mx-auto">
+      <div className="flex flex-col" id="greeting-section">
+        <div className="flex flex-col justify-around px-4">
+          <p className="text-xs font-bold md:text-2xl text-center">
             <RevealText
-              text="The Grooms"
+              text={"Assalamu’alaikum"}
               duration={0.3}
               stagger={0.15}
-              delay={0.4}
               mode="sentence"
               trigger="viewport"
             />
-          </h3>
-        </div>
+          </p>
 
-        <div className="flex flex-row gap-4">
-          <div className="w-[40%] flex flex-col justify-between">
-            <Image
-              src="/Woman1.png"
-              alt="Woman 2"
-              width={500}
-              height={300}
-              className="mt-20"
+          <p className="text-xs font-bold md:text-xl text-center">
+            <RevealText
+              text="Warahmatullahi Wabarakatuh"
+              duration={0.3}
+              stagger={0.15}
+              mode="sentence"
+              trigger="viewport"
             />
-            <Image
-              src="/Woman3.png"
-              alt="Woman 2"
-              width={500}
-              height={300}
-              className="mt-20 hidden"
-            />
-          </div>
-          <div className="w-[60%] flex flex-col justify-between">
-            <Image
-              src="/Woman2.png"
-              alt="Woman 3"
-              width={500}
-              height={300}
-              className="col-span-1"
-            />
-            <div className="md:col-span-1 flex flex-col mt-4 md:mt-12">
-              <h3 className="font-bold text-4xl md:text-6xl">
-                <RevealText
-                  text={`Robby`}
-                  duration={0.3}
-                  stagger={0.15}
-                  delay={0.4}
-                  mode={"sentence"}
-                  trigger="viewport"
-                />
-              </h3>
+          </p>
 
-              <h3 className="text-sm md:text-2xl italictext-gray-500 mt-4">
-                <RevealText
-                  text={`Born in 1995 in Hiroshima Prefecture After graduating from
-                university, began her career as a sales representative at a
-                major homebuilder Later`}
-                  duration={0.3}
-                  stagger={0.15}
-                  delay={0.4}
-                  mode={"sentence"}
-                  trigger="viewport"
-                />
-              </h3>
-            </div>
-          </div>
-          <div className="col-start-2"></div>
+          <p className="text-xs md:text-2xl text-center">
+            <RevealText
+              text={"Dengan rahmat Allah SWT, kami mengundang"}
+              duration={0.3}
+              stagger={0.15}
+              mode="sentence"
+              trigger="viewport"
+            />
+          </p>
+
+          <p className="text-xs md:text-xl text-center">
+            <RevealText
+              text="Bapak/Ibu/Saudara/i untuk hadir dalam pernikahan anak kami:"
+              duration={0.3}
+              stagger={0.15}
+              mode="sentence"
+              trigger="viewport"
+            />
+          </p>
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 items-center">
-        <div className="flex flex-col items-end">
-          <h3 className="w-[70%] lg:w-full font-bold text-6xl md:text-8xl text-end whitespace-normal">
-            <RevealText
-              text={`The Brides`}
-              duration={0.3}
-              stagger={0.15}
-              delay={0.4}
-              mode={"sentence"}
-              trigger="viewport"
-            />
-          </h3>
+      <div className="flex flex-col gap-30 lg:gap-40">
+        <div className="flex flex-col gap-4">
+          <div className="flex">
+            <h3 className="w-[80%] lg:w-full font-bold text-6xl md:text-8xl ml-4 lg:ml-0">
+              <RevealText
+                text="The Bride"
+                duration={0.3}
+                stagger={0.15}
+                delay={0.4}
+                mode="sentence"
+                trigger="viewport"
+              />
+            </h3>
+          </div>
+
+          <div className="flex flex-row gap-4">
+            <div className="w-[40%] flex flex-col justify-between">
+              <Image
+                src="/Woman1.png"
+                alt="Woman 2"
+                width={500}
+                height={300}
+                className="mt-20 w-auto h-auto"
+              />
+              <Image
+                src="/Woman3.png"
+                alt="Woman 2"
+                width={500}
+                height={300}
+                className="mt-20 hidden w-auto h-auto"
+              />
+            </div>
+            <div className="w-[60%] flex flex-col justify-between">
+              <Image
+                src="/Woman2.png"
+                alt="Woman 3"
+                width={500}
+                height={300}
+                className="col-span-1 w-auto h-auto"
+              />
+              <div className="md:col-span-1 flex flex-col mt-4 md:mt-12">
+                <h3 className="font-bold text-xl md:text-6xl">
+                  <RevealText
+                    text={`Cindia Dwiseptira Rikaren`}
+                    duration={0.3}
+                    stagger={0.15}
+                    delay={0.4}
+                    mode={"sentence"}
+                    trigger="viewport"
+                  />
+                </h3>
+
+                <h3 className="text-sm md:text-2xl italictext-gray-500 mt-4">
+                  <RevealText
+                    text={`Putri Bungsi BP. Sukardiansyah & Ibu Zalrita Retno Dewi`}
+                    duration={0.3}
+                    stagger={0.15}
+                    delay={0.4}
+                    mode={"sentence"}
+                    trigger="viewport"
+                  />
+                </h3>
+              </div>
+            </div>
+            <div className="col-start-2"></div>
+          </div>
         </div>
 
-        <div className="flex flex-row gap-4">
-          <div className="w-[60%]">
-            <Image
-              src="/Woman3.png"
-              alt="Woman 3"
-              width={1000}
-              height={1000}
-              className="col-span-1"
-            />
-            <div className="md:col-span-1 flex flex-col mt-4 md:mt-12 ml-4">
-              <h3 className="font-bold text-4xl md:text-6xl">
-                <RevealText
-                  text={`Cindia`}
-                  duration={0.3}
-                  stagger={0.15}
-                  delay={0.4}
-                  mode={"sentence"}
-                  trigger="viewport"
-                />
-              </h3>
+        <div className="w-full flex justify-center">
+          <Image
+            src="/ring.png"
+            alt="ring"
+            width={200}
+            height={100}
+            priority
+            className="w-auto h-auto"
+          />
+        </div>
 
-              <h3 className="text-sm md:text-2xl italic text-gray-500 mt-4">
-                <RevealText
-                  text={`Born in 1995 in Hiroshima Prefecture After graduating from
-                university, began her career as a sales representative at a
-                major homebuilder Later`}
-                  duration={0.3}
-                  stagger={0.15}
-                  delay={0.4}
-                  mode={"sentence"}
-                  trigger="viewport"
+        <div className="flex flex-col gap-4 items-center">
+          <div className="flex flex-col items-end gap-4">
+            <h3 className="w-[70%] lg:w-full font-bold text-6xl md:text-8xl text-end whitespace-normal mr-4 lg:mr-0">
+              <RevealText
+                text={`The Groom`}
+                duration={0.3}
+                stagger={0.15}
+                delay={0.4}
+                mode={"sentence"}
+                trigger="viewport"
+              />
+            </h3>
+
+            <div className="flex flex-row gap-4">
+              <div className="w-[60%]">
+                <Image
+                  src="/Woman3.png"
+                  alt="Woman 3"
+                  width={1000}
+                  height={1000}
+                  className="col-span-1 w-auto h-auto"
                 />
-              </h3>
+                <div className="md:col-span-1 flex flex-col mt-4 md:mt-12 ml-4">
+                  <h3 className="font-bold text-xl md:text-6xl">
+                    <RevealText
+                      text={`Robby Bagus Setiawan`}
+                      duration={0.3}
+                      stagger={0.15}
+                      delay={0.4}
+                      mode={"sentence"}
+                      trigger="viewport"
+                    />
+                  </h3>
+
+                  <h3 className="text-sm md:text-2xl italic text-gray-500 mt-4">
+                    <RevealText
+                      text={`Putra Bungsu BP. Amir & Ibu Suwarsih`}
+                      duration={0.3}
+                      stagger={0.15}
+                      delay={0.4}
+                      mode={"sentence"}
+                      trigger="viewport"
+                    />
+                  </h3>
+                </div>
+              </div>
+              <div className="w-[40%] flex flex-col justify-between">
+                <Image
+                  src="/Woman1.png"
+                  alt="Woman 3"
+                  width={1000}
+                  height={1000}
+                  className="col-span-1 mt-30 w-auto h-auto"
+                />
+              </div>
             </div>
-          </div>
-          <div className="w-[40%] flex flex-col justify-between">
-            {/* <Image src="/Woman2.png" alt="Woman 2" width={500} height={300} /> */}
-            <Image
-              src="/Woman1.png"
-              alt="Woman 3"
-              width={1000}
-              height={1000}
-              className="col-span-1 mt-30"
-            />
           </div>
         </div>
       </div>

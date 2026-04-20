@@ -41,10 +41,10 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4 min-h-[300px] text-black">
-      <h2 className="text-md md:text-xl font-bold text-center mb-8 flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center justify-center p-4 text-gray-100">
+      <h2 className="text-md md:text-xl text-center mb-8 flex flex-col items-center gap-2">
         <RevealText
-          text="Counting down to our celebration of love"
+          text="Hitungan mundur menuju perayaan cinta kita"
           duration={0.3}
           stagger={0.15}
           delay={0.4}
@@ -53,8 +53,7 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
         ></RevealText>
       </h2>
 
-      {/* Bagian Kotak Timer */}
-      <div className="flex px-4  items-center justify-center gap-3 md:gap-4">
+      <div className="flex px-4 items-center justify-center gap-3 md:gap-4 text-black">
         <TimeBox value={formatNumber(timeLeft.days)} label="DAYS" />
         <TimeBox value={formatNumber(timeLeft.hours)} label="HOURS" />
         <TimeBox value={formatNumber(timeLeft.minutes)} label="MINUTES" />
@@ -72,8 +71,13 @@ interface TimeBoxProps {
 
 function TimeBox({ value, label }: TimeBoxProps) {
   return (
-    <div className="flex flex-col items-center justify-center w-20 h-24 md:w-28 md:h-32 shadow-lg">
-      <span className="text-xl md:text-2xl font-bold mb-1">{value}</span>
+    <div className="flex flex-col items-center justify-center w-20 h-20 md:w-28 md:h-32 shadow-lg bg-white rounded-md">
+      <span
+        suppressHydrationWarning
+        className="text-xl md:text-2xl font-bold mb-1"
+      >
+        {value}
+      </span>
       <span className="text-[10px] md:text-xs tracking-[0.2em]  mt-1">
         {label}
       </span>

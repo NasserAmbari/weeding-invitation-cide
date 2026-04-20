@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ImageSlideshowProps {
   images: string[];
@@ -10,72 +11,112 @@ interface ImageSlideshowProps {
   className?: string;
   imgClassName?: string;
   overlay?: React.ReactNode;
+  showArrows?: boolean;
 }
 
 export default function ImageSlideshow({
   images,
   interval = 5000,
-  fadeDuration = 1500,
+  fadeDuration = 1000,
   className = "",
   imgClassName = "",
   overlay,
+  showArrows = true,
 }: ImageSlideshowProps) {
+  // Dua slot A dan B yang bergantian — cross-fade tanpa kosong
   const [slotA, setSlotA] = useState(0);
   const [slotB, setSlotB] = useState<number | null>(null);
-  const [activeSlot, setActiveSlot] = useState<"a" | "b">("a");
+  // Slot mana yang sedang "aktif" (opacity 1)
+  const [top, setTop] = useState<"a" | "b">("a");
+  // Apakah sedang dalam proses transisi
+  const [fading, setFading] = useState(false);
 
-  const indexRef = useRef(0);
-  const activeRef = useRef<"a" | "b">("a");
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fadingRef = useRef(false);
+  const currentIndex = useRef(0);
+  const topRef = useRef<"a" | "b">("a");
 
-  useEffect(() => {
-    if (images.length <= 1) return;
+  // ── Cross-fade ke index berikutnya ───────────────────────────────
+  const goTo = useCallback(
+    (nextIndex: number) => {
+      if (fadingRef.current || images.length <= 1) return;
+      fadingRef.current = true;
+      setFading(true);
 
-    const tick = () => {
-      indexRef.current = (indexRef.current + 1) % images.length;
-      const next = indexRef.current;
-      const goingTo: "a" | "b" = activeRef.current === "a" ? "b" : "a";
+      const nextSlot: "a" | "b" = topRef.current === "a" ? "b" : "a";
 
-      if (goingTo === "b") setSlotB(next);
-      else setSlotA(next);
+      // Isi slot yang tidak aktif dengan gambar baru
+      if (nextSlot === "b") setSlotB(nextIndex);
+      else setSlotA(nextIndex);
 
+      // Tunggu satu frame agar gambar baru ter-render sebelum fade dimulai
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          activeRef.current = goingTo;
-          setActiveSlot(goingTo);
+          // Angkat slot baru ke atas (fade in) — slot lama otomatis fade out
+          topRef.current = nextSlot;
+          setTop(nextSlot);
+          currentIndex.current = nextIndex;
+
+          setTimeout(() => {
+            fadingRef.current = false;
+            setFading(false);
+          }, fadeDuration);
         });
       });
+    },
+    [fadeDuration, images.length],
+  );
 
-      timerRef.current = setTimeout(tick, interval);
-    };
+  const goNext = useCallback(() => {
+    const next = (currentIndex.current + 1) % images.length;
+    goTo(next);
+  }, [images.length, goTo]);
 
-    timerRef.current = setTimeout(tick, interval);
+  const goPrev = useCallback(() => {
+    const prev = (currentIndex.current - 1 + images.length) % images.length;
+    goTo(prev);
+  }, [images.length, goTo]);
+
+  // ── Autoplay ─────────────────────────────────────────────────────
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(goNext, interval);
+  }, [goNext, interval]);
+
+  useEffect(() => {
+    resetTimer();
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [resetTimer]);
 
-  // Use inline style for positioning so it's never overridden by Tailwind conflicts
-  const containerStyle: React.CSSProperties = {
-    position: "absolute",
-    inset: 0,
+  const handlePrev = () => {
+    resetTimer();
+    goPrev();
+  };
+  const handleNext = () => {
+    resetTimer();
+    goNext();
   };
 
+  // ── Style tiap slot ───────────────────────────────────────────────
+  // Slot yang "top" → opacity 1, slot lain → opacity 0
+  // Keduanya selalu ada di DOM — tidak ada mount/unmount saat transisi
   const slotStyle = (slot: "a" | "b"): React.CSSProperties => ({
     position: "absolute",
     inset: 0,
-    opacity: activeSlot === slot ? 1 : 0,
+    opacity: top === slot ? 1 : 0,
     transition: `opacity ${fadeDuration}ms ease-in-out`,
+    zIndex: top === slot ? 1 : 0,
   });
 
   return (
-    <div style={containerStyle} className={className}>
-      {/* Slot A */}
+    <div className={`relative overflow-hidden ${className}`}>
+      {/* ── Slot A ─────────────────────────────────────────────── */}
       <div style={slotStyle("a")}>
         <Image
           src={images[slotA]}
-          alt="slideshow"
+          alt={`slide-a`}
           fill
           priority
           sizes="100vw"
@@ -83,12 +124,12 @@ export default function ImageSlideshow({
         />
       </div>
 
-      {/* Slot B */}
+      {/* ── Slot B ─────────────────────────────────────────────── */}
       {slotB !== null && (
         <div style={slotStyle("b")}>
           <Image
             src={images[slotB]}
-            alt="slideshow"
+            alt={`slide-b`}
             fill
             sizes="100vw"
             className={`object-cover ${imgClassName}`}
@@ -96,10 +137,31 @@ export default function ImageSlideshow({
         </div>
       )}
 
-      {overlay && (
-        <div style={{ position: "absolute", inset: 0, zIndex: 10 }}>
-          {overlay}
-        </div>
+      {/* Spacer agar container punya tinggi mengikuti className ─── */}
+      <div className="relative w-full h-full invisible" aria-hidden />
+
+      {/* ── Overlay ────────────────────────────────────────────── */}
+      {overlay && <div className="absolute inset-0 z-10">{overlay}</div>}
+
+      {/* ── Arrow navigation ───────────────────────────────────── */}
+      {showArrows && images.length > 1 && (
+        <>
+          <button
+            onClick={handlePrev}
+            aria-label="Previous slide"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-black/30 hover:bg-black/55 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 active:scale-95"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            aria-label="Next slide"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex items-center justify-center w-9 h-9 rounded-full bg-black/30 hover:bg-black/55 text-white backdrop-blur-sm transition-all duration-200 hover:scale-110 active:scale-95"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </>
       )}
     </div>
   );

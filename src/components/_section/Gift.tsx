@@ -26,27 +26,30 @@ const handleClick = async (account: string, numberAccount: string) => {
 };
 
 const listAccount = [
-  { account: "BCA", accountNumber: "23232" },
-  { account: "BRI", accountNumber: "23232" },
-  { account: "Mandiri", accountNumber: "23232" },
+  {
+    account: "BCA",
+    accountNumber: "5705067934",
+    accountName: "Cindia Dwisepta Rikaren",
+  },
 ];
 
 const Gift = () => {
   return (
-    <div className="flex flex-col gap-20 p-8 py-20 justify-center items-center">
+    <div className="flex flex-col gap-20 px-8 py-4 justify-center items-center">
       <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col gap-8">
         <h3 className="text-md md:text-2xl italic text-gray-400 text-center">
           <RevealText
-            text="Your blessings are a meaningful gift for the couple. However, if giving is your expression of love, you may use the following feature"
+            text="Ucapan selamat Anda merupakan hadiah yang sangat berarti bagi pasangan"
             trigger="viewport"
             mode="sentence"
             duration={0.8}
           />
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 w-[70%] self-center">
           {listAccount.map((item, index) => (
             <div
+              key={index}
               onClick={() => {
                 handleClick(item.account, item.accountNumber);
               }}
@@ -55,14 +58,24 @@ const Gift = () => {
                 className="custom-spotlight-card bg-[#030712]"
                 spotlightColor="rgba(0, 229, 255, 0.2)"
               >
-                <h3 className="text-xl md:text-2xl italic text-gray-100 px-0.5">
-                  <RevealText
-                    text={item.account}
-                    trigger="viewport"
-                    mode="sentence"
-                    duration={0.8}
-                  />
-                </h3>
+                <div className="flex flex-col">
+                  <h3 className="text-sm md:text-xl italic text-gray-100 px-0.5">
+                    <RevealText
+                      text={`${item.account} `}
+                      trigger="viewport"
+                      mode="sentence"
+                      duration={0.8}
+                    />
+                  </h3>
+                  <h3 className="text-sm md:text-xl italic text-gray-100 px-0.5">
+                    <RevealText
+                      text={`A.n ${item.accountName}`}
+                      trigger="viewport"
+                      mode="sentence"
+                      duration={0.8}
+                    />
+                  </h3>
+                </div>
 
                 <div>
                   <h4 className="text-2xl md:text-3xl italic text-gray-100">
@@ -74,9 +87,9 @@ const Gift = () => {
                     />
                   </h4>
 
-                  <p className="text-xs text-gray-800 text-end">
+                  <p className="text-sm text-gray-600 text-end">
                     <RevealText
-                      text="Copy to Clipboard"
+                      text="Klik untuk Copy"
                       trigger="viewport"
                       mode="sentence"
                       duration={0.8}
