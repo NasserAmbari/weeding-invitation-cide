@@ -21,8 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className={`${libre.className} antialiased h-dvh`}>
+    <html
+      lang="en"
+      className={cn("font-sans", geist.variable)}
+      suppressHydrationWarning
+    >
+      <body
+        className={`${libre.className} antialiased min-h-dvh overflow-x-hidden`}
+        suppressHydrationWarning
+      >
         {children}
         <Toaster />
       </body>

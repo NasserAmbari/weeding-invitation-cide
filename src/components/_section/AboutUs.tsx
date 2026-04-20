@@ -111,7 +111,7 @@ const AboutUs = () => {
 
         <div className="w-full flex justify-center">
           <Image
-            src="/ring.png"
+            src="/Ring.png"
             alt="ring"
             width={200}
             height={100}

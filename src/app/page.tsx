@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <main className="w-full bg-[#FEF2E8] overflow-x-hidden">
-      {/* <Loader onComplete={() => setReveal(true)} /> */}
+      <Loader onComplete={() => setReveal(true)} />
 
       <div
         style={{
