@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "Undangan Pernikahan Cindia & Robby",
     images: [
       {
-        url: "/Slideshow_1.webp", // Ganti dengan path gambar cover Anda jika ingin berbeda
+        url: "/heart.png",
         width: 1200,
         height: 630,
         alt: "Cindia & Robby Wedding",
@@ -30,6 +30,11 @@ export const metadata: Metadata = {
     ],
     locale: "id_ID",
     type: "website",
+  },
+  icons: {
+    icon: "/heart.png",
+    shortcut: "/heart.png",
+    apple: "/heart.png",
   },
 };
 

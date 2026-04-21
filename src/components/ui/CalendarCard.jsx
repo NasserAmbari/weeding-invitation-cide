@@ -39,7 +39,7 @@ export default function CalendarCard({
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#111] font-serif">
-      <div className="w-[300px] rounded-[20px] overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.6)] select-none bg-[#F0EAE0]">
+      <div className="w-75 rounded-[20px] overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.6)] select-none bg-[#F0EAE0]">
         {/* Header */}
         <div className="bg-[#6B0F1A] px-8 pt-6 pb-5 flex items-baseline justify-between">
           <span className="text-[#F0EAE0] text-md font-bold leading-none tracking-widest">
@@ -83,7 +83,7 @@ export default function CalendarCard({
                           {day}
                         </span>
                         {isHighlight && (
-                          <div className="absolute inset-[6px] rounded-full border-2 border-[#9B2335] opacity-75 pointer-events-none shadow-[0_0_0_1px_rgba(155,35,53,0.25)]" />
+                          <div className="absolute inset-1.5 rounded-full border-2 border-[#9B2335] opacity-75 pointer-events-none shadow-[0_0_0_1px_rgba(155,35,53,0.25)]" />
                         )}
                       </>
                     )}

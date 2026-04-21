@@ -17,6 +17,14 @@ interface RevealTextProps {
   stagger?: number;
   threshold?: number;
   trigger?: Trigger;
+  /**
+   * Opsional. Ketika berubah ke nilai truthy dan trigger="none",
+   * animasi akan diputar ulang.
+   * Berguna untuk memicu animasi setelah event eksternal (misal: loader selesai).
+   * Setiap instance RevealText memegang controls-nya sendiri — perubahan
+   * playSignal pada satu instance tidak mempengaruhi instance lain.
+   */
+  playSignal?: unknown;
 }
 
 export default function RevealText({
@@ -28,7 +36,10 @@ export default function RevealText({
   stagger = 0.05,
   threshold = 0.3,
   trigger = "none",
+  playSignal,
 }: RevealTextProps) {
+  // Setiap instance RevealText memiliki controls-nya sendiri (useAnimation)
+  // sehingga animasi satu instance tidak mempengaruhi instance lain.
   const controls = useAnimation();
 
   const segments: string[] = (() => {
@@ -56,6 +67,7 @@ export default function RevealText({
   const ref = useRevealAnimation<HTMLSpanElement>({
     trigger,
     threshold,
+    playSignal,
     onPlay: useCallback(() => controls.start("visible"), [controls]),
     onReset: useCallback(() => controls.start("hidden"), [controls]),
     onSnap: useCallback(() => controls.set("visible"), [controls]),

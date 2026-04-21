@@ -1,10 +1,15 @@
 import RevealText from "../ui/RevealText";
 import Image from "next/image";
 
+import { Parisienne } from "next/font/google";
+const secondFont = Parisienne({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 const Footer = () => {
   return (
     <div className="relative w-full">
-      {/* Gambar */}
       <Image
         src="/Footer.jpg"
         alt="footer"
@@ -13,11 +18,11 @@ const Footer = () => {
         className="grayscale w-full h-full object-cover"
       />
 
-      {/* Overlay gelap */}
       <div className="absolute inset-0 bg-black/60" />
 
-      {/* Teks di tengah */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-white text-center px-8 text-sm md:text-sm lg:text-xl">
+      <div
+        className={`absolute inset-0 flex flex-col items-center justify-center gap-2 text-white text-center px-8 text-2xl md:text-6xl lg:text-8xl ${secondFont.className}`}
+      >
         <RevealText
           text="Thank you for your attendance and support"
           trigger="viewport"

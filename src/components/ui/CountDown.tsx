@@ -44,7 +44,7 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
     <div className="flex flex-col items-center justify-center p-4 text-gray-100">
       <h2 className="text-md md:text-xl text-center mb-8 flex flex-col items-center gap-2">
         <RevealText
-          text="Hitungan mundur menuju perayaan cinta kita"
+          text="Countdown to our day:"
           duration={0.3}
           stagger={0.15}
           delay={0.4}

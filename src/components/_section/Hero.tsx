@@ -1,41 +1,45 @@
 "use client";
 
 import RevealText from "@/components/ui/RevealText";
-import ImageSlideshow from "@/components/ui/ImageSlideshow";
-import { Playfair } from "next/font/google";
+import { Parisienne, Playfair } from "next/font/google";
 import ScrollDown from "../ui/ScrollDown";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 
 const playfair = Playfair({ subsets: ["latin"] });
-
-const IMAGES = ["/Hero.webp", "/Hero2.webp", "/Hero3.webp"];
+const parisienne = Parisienne({ subsets: ["latin"], weight: "400" });
 
 interface HeroProps {
   revealed?: boolean;
 }
 
-const Greeting = ({ trigger }: { trigger: "none" | "viewport" }) => {
+/**
+ * Greeting menggunakan playSignal dari parent (revealed).
+ * trigger selalu "none" — animasi jalan saat revealed berubah true.
+ */
+const Greeting = ({ revealed }: { revealed: boolean }) => {
   const searchParams = useSearchParams();
   const to = searchParams.get("to") || "Tamu";
 
   return (
     <div className="flex flex-col">
       <RevealText
-        text={`Hallo ${to}`}
+        text={`Hi ${to}`}
         duration={0.3}
         stagger={0.15}
-        delay={8.0}
-        trigger={trigger}
+        delay={0.3}
+        trigger="none"
+        playSignal={revealed}
         mode="sentence"
       />
       <RevealText
-        text={`Anda diundang untuk merayakan pernikahan`}
+        text={`You're invited to celebrate the wedding of`}
         duration={0.3}
         stagger={0.15}
-        delay={8.0}
-        trigger={trigger}
+        delay={0.5}
+        trigger="none"
+        playSignal={revealed}
         mode="sentence"
       />
     </div>
@@ -43,8 +47,6 @@ const Greeting = ({ trigger }: { trigger: "none" | "viewport" }) => {
 };
 
 const Hero = ({ revealed = false }: HeroProps) => {
-  const trigger = revealed ? "none" : "viewport";
-
   return (
     <div className="w-full h-full flex items-center overflow-hidden">
       <div className="w-full h-full flex items-center overflow-hidden relative">
@@ -58,57 +60,66 @@ const Hero = ({ revealed = false }: HeroProps) => {
         <div className="absolute inset-0 bg-black/50 z-10" />
         <div className="relative -translate-y-15 lg:translate-y-0 z-20 w-full flex flex-col p-4 md:p-8 text-white gap-8">
           <h1 className="text-center">
+            {/*
+             * Suspense fallback juga menggunakan trigger="none" + playSignal
+             * agar consistent. Saat Greeting belum siap (SSR/hydration),
+             * fallback ini yang tampil dengan behavior yang sama.
+             */}
             <Suspense
               fallback={
                 <RevealText
                   text="Anda diundang untuk merayakan pernikahan"
                   duration={0.3}
                   stagger={0.15}
-                  delay={8.0}
-                  trigger={trigger}
+                  delay={0.5}
+                  trigger="none"
+                  playSignal={revealed}
                   mode="sentence"
                 />
               }
             >
-              <Greeting trigger={trigger} />
+              <Greeting revealed={revealed} />
             </Suspense>
           </h1>
 
           <div className="w-[90%] md:w-2/4 lg:w-2/5 mx-auto flex flex-col justify-content items-center gap-2">
             <h1
-              className={`${playfair.className} text-8xl lg:text-9xl font-black`}
+              className={`${parisienne.className} text-8xl lg:text-9xl font-black`}
             >
               <RevealText
                 text="Cindia"
                 duration={0.3}
                 stagger={0.15}
                 mode="sentence"
-                trigger={trigger}
-                delay={8.2}
+                trigger="none"
+                playSignal={revealed}
+                delay={0.7}
               />
             </h1>
             <h1
-              className={`${playfair.className} text-8xl lg:text-9xl font-black`}
+              className={`${parisienne.className} text-8xl lg:text-9xl font-black`}
             >
               <RevealText
                 text="&"
                 duration={0.3}
                 stagger={0.15}
-                delay={8.4}
+                delay={0.9}
                 mode="sentence"
-                trigger={trigger}
+                trigger="none"
+                playSignal={revealed}
               />
             </h1>
             <h1
-              className={`${playfair.className} text-8xl lg:text-9xl font-black`}
+              className={`${parisienne.className} text-8xl lg:text-9xl font-black`}
             >
               <RevealText
                 text="Robby"
                 duration={0.3}
                 stagger={0.15}
-                delay={8.6}
+                delay={1.1}
                 mode="sentence"
-                trigger={trigger}
+                trigger="none"
+                playSignal={revealed}
               />
             </h1>
           </div>

@@ -9,6 +9,7 @@ type Trigger = "viewport" | "none";
 interface UseRevealAnimationOptions {
   trigger?: Trigger;
   threshold?: number;
+  playSignal?: unknown; // NEW: when this changes, re-trigger play for trigger="none"
   onPlay: () => void;
   onReset: () => void;
   onSnap: () => void;
@@ -19,10 +20,17 @@ interface UseRevealAnimationOptions {
  * Dapat dipakai ulang di RevealText, RevealImage, RevealForm, dll.
  *
  * Returns: ref yang harus dipasang ke elemen DOM target.
+ *
+ * Perubahan:
+ * - Tambah `playSignal` prop: saat nilainya berubah dan trigger="none",
+ *   animasi langsung di-play ulang (reset hasPlayed.current).
+ *   Ini memungkinkan parent mengontrol kapan animasi berjalan tanpa
+ *   bergantung pada PageTransitionContext.
  */
 export function useRevealAnimation<T extends HTMLElement>({
   trigger = "none",
   threshold = 0.3,
+  playSignal,
   onPlay,
   onReset,
   onSnap,
@@ -78,6 +86,7 @@ export function useRevealAnimation<T extends HTMLElement>({
     }
   }, [threshold, onPlay, onReset, onSnap]);
 
+  // Viewport scroll listener — hanya aktif saat trigger="viewport"
   useEffect(() => {
     if (trigger === "viewport") {
       checkPosition();
@@ -98,11 +107,31 @@ export function useRevealAnimation<T extends HTMLElement>({
     }
   }, [trigger, checkPosition]);
 
-  // For trigger="none": wait until the page transition finishes before playing
+  /**
+   * Trigger="none" dengan playSignal:
+   * - Saat playSignal berubah ke nilai truthy, reset hasPlayed dan play.
+   * - Ini memungkinkan parent (misal: setelah loader selesai) langsung
+   *   memicu animasi tanpa menunggu PageTransitionContext.
+   * - Fallback ke isTransitionReady jika playSignal tidak diberikan.
+   */
   useEffect(() => {
     if (trigger !== "none") return;
+
+    // Jika playSignal diberikan, gunakan itu sebagai trigger utama
+    if (playSignal !== undefined) {
+      if (!playSignal) {
+        // Signal belum aktif — reset agar siap diplay saat aktif
+        hasPlayed.current = false;
+        return;
+      }
+      if (hasPlayed.current) return;
+      hasPlayed.current = true;
+      onPlay();
+      return;
+    }
+
+    // Fallback: gunakan isTransitionReady dari PageTransitionContext
     if (!isTransitionReady) {
-      // Transition still running — reset played flag so it fires once ready
       hasPlayed.current = false;
       return;
     }
@@ -110,7 +139,7 @@ export function useRevealAnimation<T extends HTMLElement>({
 
     hasPlayed.current = true;
     onPlay();
-  }, [trigger, isTransitionReady, onPlay]);
+  }, [trigger, playSignal, isTransitionReady, onPlay]);
 
   return ref;
 }

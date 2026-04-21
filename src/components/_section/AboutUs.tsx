@@ -1,6 +1,12 @@
 import RevealText from "@/components/ui/RevealText";
 import Image from "next/image";
 
+import { Parisienne } from "next/font/google";
+const secondFont = Parisienne({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 const AboutUs = () => {
   return (
     <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col gap-16 lg:gap-16 text-black justify-center items-center mx-auto">
@@ -38,7 +44,7 @@ const AboutUs = () => {
 
           <p className="text-xs md:text-xl text-center">
             <RevealText
-              text="Bapak/Ibu/Saudara/i untuk hadir dalam pernikahan anak kami:"
+              text="Bapak/Ibu/Saudara/i untuk hadir dalam pernikahan kami:"
               duration={0.3}
               stagger={0.15}
               mode="sentence"
@@ -51,7 +57,9 @@ const AboutUs = () => {
       <div className="flex flex-col gap-30 lg:gap-40">
         <div className="flex flex-col gap-4">
           <div className="flex">
-            <h3 className="w-[80%] lg:w-full font-bold text-6xl md:text-8xl ml-4 lg:ml-0">
+            <h3
+              className={`w-[80%] lg:w-full font-bold text-6xl md:text-8xl ml-4 lg:ml-0 ${secondFont.className}`}
+            >
               <RevealText
                 text="The Bride"
                 duration={0.3}
@@ -82,7 +90,9 @@ const AboutUs = () => {
                 className="col-span-1 w-auto h-auto"
               />
               <div className="md:col-span-1 flex flex-col mt-4 md:mt-12">
-                <h3 className="font-bold text-xl md:text-6xl">
+                <h3
+                  className={`font-bold text-xl md:text-6xl ${secondFont.className}`}
+                >
                   <RevealText
                     text={`Cindia Dwiseptira Rikaren`}
                     duration={0.3}
@@ -93,9 +103,20 @@ const AboutUs = () => {
                   />
                 </h3>
 
-                <h3 className="text-sm md:text-2xl italic text-gray-500 mt-4">
+                <h4 className="text-xs md:text-2xl">
                   <RevealText
-                    text={`Putri Bungsi BP. Sukardiansyah & Ibu Zalrita Retno Dewi`}
+                    text={`18.09.1999`}
+                    duration={0.3}
+                    stagger={0.15}
+                    delay={0.4}
+                    mode={"sentence"}
+                    trigger="viewport"
+                  />
+                </h4>
+
+                <h3 className="text-xs md:text-2xl italic text-gray-500 mt-2">
+                  <RevealText
+                    text={`Putri Bungsu Bpk Sukardiansyah & Ibu Zalrita Retno Dewi`}
                     duration={0.3}
                     stagger={0.15}
                     delay={0.4}
@@ -109,7 +130,7 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <div className="w-full flex justify-center">
+        {/* <div className="w-full flex justify-center">
           <Image
             src="/Ring.png"
             alt="ring"
@@ -118,11 +139,13 @@ const AboutUs = () => {
             priority
             className="w-auto h-auto"
           />
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-4 items-center">
           <div className="flex flex-col items-end gap-4">
-            <h3 className="w-[70%] lg:w-full font-bold text-6xl md:text-8xl text-end whitespace-normal mr-4 lg:mr-0">
+            <h3
+              className={`w-[70%] lg:w-full font-bold text-6xl md:text-8xl text-end whitespace-normal mr-4 lg:mr-0 ${secondFont.className}`}
+            >
               <RevealText
                 text={`The Groom`}
                 duration={0.3}
@@ -143,7 +166,9 @@ const AboutUs = () => {
                   className="col-span-1 w-auto h-auto"
                 />
                 <div className="md:col-span-1 flex flex-col mt-4 md:mt-12 ml-4">
-                  <h3 className="font-bold text-xl md:text-6xl">
+                  <h3
+                    className={`font-bold text-xl md:text-6xl ${secondFont.className}`}
+                  >
                     <RevealText
                       text={`Robby Bagus Setiawan`}
                       duration={0.3}
@@ -154,9 +179,20 @@ const AboutUs = () => {
                     />
                   </h3>
 
-                  <h3 className="text-sm md:text-2xl italic text-gray-500 mt-4">
+                  <h4 className="text-xs md:text-2xl">
                     <RevealText
-                      text={`Putra Bungsu BP. Amir & Ibu Suwarsih`}
+                      text={`10.08.1999`}
+                      duration={0.3}
+                      stagger={0.15}
+                      delay={0.4}
+                      mode={"sentence"}
+                      trigger="viewport"
+                    />
+                  </h4>
+
+                  <h3 className="text-xs md:text-2xl italic text-gray-500 mt-2">
+                    <RevealText
+                      text={`Putra Bungsu Bpk Amir & Ibu Suwarsih`}
                       duration={0.3}
                       stagger={0.15}
                       delay={0.4}

@@ -9,6 +9,12 @@ const libre = Libre_Baskerville({
   subsets: ["latin"],
 });
 
+import { Parisienne } from "next/font/google";
+const secondFont = Parisienne({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 const handleClick = async (account: string, numberAccount: string) => {
   try {
     await navigator.clipboard.writeText(numberAccount);
@@ -34,17 +40,28 @@ const listAccount = [
 const Gift = () => {
   return (
     <div className="flex flex-col gap-20 px-4 py-8 justify-center items-center">
-      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-8">
-        <h3 className="text-md md:text-2xl italic text-gray-400 text-center">
+      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-4">
+        <h4
+          className={`text-5xl md:text-7xl italic text-center text-gray-100 mb-2 ${secondFont.className}`}
+        >
           <RevealText
-            text="Ucapan selamat Anda merupakan hadiah yang sangat berarti bagi pasangan"
+            text="Gift"
             trigger="viewport"
             mode="sentence"
             duration={0.8}
           />
-        </h3>
+        </h4>
 
-        <div className="grid grid-cols-1 w-full md:w-[90%] lg:w-[60%] lg:w-[80%] self-center">
+        <h4 className="text-sm md:text-md italic text-gray-400 text-center">
+          <RevealText
+            text="With all due respect, if you're intended to give a token of love to us, you can do so via:"
+            trigger="viewport"
+            mode="sentence"
+            duration={0.8}
+          />
+        </h4>
+
+        <div className="grid grid-cols-1 w-full md:w-[90%] lg:w-[60%]  self-center">
           {listAccount.map((item, index) => (
             <div
               key={index}

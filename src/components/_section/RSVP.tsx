@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 import RevealText from "@/components/ui/RevealText";
 import { createRSVP } from "@/service/api";
 
+import { Parisienne } from "next/font/google";
+const secondFont = Parisienne({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:4000";
 
@@ -107,8 +113,10 @@ const RSVP = () => {
         </div>
       )}
 
-      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-8">
-        <h3 className="text-3xl md:text-4xl italic text-center text-gray-100">
+      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-4">
+        <h3
+          className={`text-4xl md:text-6xl italic text-center text-gray-100 mb-2 ${secondFont.className}`}
+        >
           <RevealText
             text="RSVP"
             trigger="viewport"
@@ -116,6 +124,14 @@ const RSVP = () => {
             duration={0.8}
           />
         </h3>
+        <h4 className="text-sm md:text-md italic text-center text-gray-400">
+          <RevealText
+            text="And your kind wishes & beautiful messages would mean a lot to us to remember"
+            trigger="viewport"
+            mode="sentence"
+            duration={0.8}
+          />
+        </h4>
 
         <form
           onSubmit={handleSubmit}
@@ -225,8 +241,10 @@ const RSVP = () => {
       </div>
 
       {/* Messages Section */}
-      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-8 mt-12">
-        <h3 className="text-2xl md:text-3xl italic text-center text-gray-100">
+      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-4 mt-12">
+        <h3
+          className={`text-4xl md:text-6xl italic text-center text-gray-100 mb-2 ${secondFont.className}`}
+        >
           <RevealText
             text="Wishes & Messages"
             trigger="viewport"

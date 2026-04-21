@@ -10,12 +10,20 @@ const goToMap = () => {
   window.open(linkGoogleMap, "_blank");
 };
 
+import { Parisienne } from "next/font/google";
+const secondFont = Parisienne({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 const DetailVenue = () => {
   return (
     <div className="flex flex-col gap-12 px-8 py-12 justify-center items-center">
       <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-24">
         <div className="flex flex-col gap-4">
-          <h3 className="text-3xl md:text-4xl italic text-center text-gray-100">
+          <h3
+            className={`text-5xl md:text-7xl italic text-center text-gray-100 ${secondFont.className}`}
+          >
             <RevealText
               text="Akad"
               trigger="viewport"
@@ -26,7 +34,7 @@ const DetailVenue = () => {
 
           <div className="flex justify-between">
             <div className="flex flex-col md:gap-4">
-              <h3 className="text-sm md:text-2xl italic text-gray-400">
+              <h3 className="text-xs md:text-2xl italic text-gray-400">
                 <RevealText
                   text="Tanggal"
                   trigger="viewport"
@@ -35,9 +43,9 @@ const DetailVenue = () => {
                 />
               </h3>
 
-              <h4 className="text-xl md:text-5xl italic text-gray-100">
+              <h4 className="text-xs md:text-5xl italic text-gray-100">
                 <RevealText
-                  text="02 Mei 2026"
+                  text="Sabtu, 02 Mei 2026"
                   trigger="viewport"
                   mode="sentence"
                   duration={0.8}
@@ -46,7 +54,7 @@ const DetailVenue = () => {
             </div>
 
             <div className="flex flex-col md:gap-4">
-              <h3 className="text-sm md:text-2xl italic text-gray-400">
+              <h3 className="text-xs md:text-2xl italic text-gray-400">
                 <RevealText
                   text="Waktu"
                   trigger="viewport"
@@ -55,7 +63,7 @@ const DetailVenue = () => {
                 />
               </h3>
 
-              <h4 className="text-xl md:text-5xl italic text-gray-100">
+              <h4 className="text-xs md:text-5xl italic text-gray-100">
                 <RevealText
                   text="10:00 Wita"
                   trigger="viewport"
@@ -68,7 +76,9 @@ const DetailVenue = () => {
         </div>
 
         <div className="flex flex-col gap-4">
-          <h3 className="text-3xl md:text-4xl italic text-center text-gray-100">
+          <h3
+            className={`text-5xl md:text-7xl italic text-center text-gray-100 ${secondFont.className}`}
+          >
             <RevealText
               text="Resepsi"
               trigger="viewport"
@@ -79,7 +89,7 @@ const DetailVenue = () => {
 
           <div className="flex justify-between">
             <div className="flex flex-col md:gap-4">
-              <h3 className="text-sm md:text-2xl italic text-gray-400">
+              <h3 className="text-xs md:text-2xl italic text-gray-400">
                 <RevealText
                   text="Tanggal"
                   trigger="viewport"
@@ -88,9 +98,9 @@ const DetailVenue = () => {
                 />
               </h3>
 
-              <h4 className="text-xl md:text-5xl italic text-gray-100">
+              <h4 className="text-xs md:text-5xl italic text-gray-100">
                 <RevealText
-                  text="02 Mei 2026"
+                  text="Sabtu, 02 Mei 2026"
                   trigger="viewport"
                   mode="sentence"
                   duration={0.8}
@@ -99,7 +109,7 @@ const DetailVenue = () => {
             </div>
 
             <div className="flex flex-col md:gap-4">
-              <h3 className="text-sm md:text-2xl italic text-gray-400">
+              <h3 className="text-xs md:text-2xl text-end italic text-gray-400">
                 <RevealText
                   text="Waktu"
                   trigger="viewport"
@@ -108,9 +118,9 @@ const DetailVenue = () => {
                 />
               </h3>
 
-              <h4 className="text-xl md:text-5xl italic text-gray-100">
+              <h4 className="text-xs md:text-5xl text-end italic text-gray-100">
                 <RevealText
-                  text="12:00 Wita"
+                  text="12:00 Wita s/d Selesai"
                   trigger="viewport"
                   mode="sentence"
                   duration={0.8}
@@ -122,7 +132,9 @@ const DetailVenue = () => {
 
         <CountdownTimer targetDate={"2026-05-02T10:00:00"} />
         <div className="flex flex-col items-center">
-          <h4 className="text-3xl md:text-4xl italict text-center text-gray-100 mb-2">
+          <h4
+            className={`text-5xl md:text-7xl italic text-center text-gray-100 ${secondFont.className} mb-2`}
+          >
             <RevealText
               text="Lokasi"
               trigger="viewport"
@@ -130,6 +142,15 @@ const DetailVenue = () => {
               duration={0.8}
             />
           </h4>
+
+          <p className="text-xs md:text-sm italict text-center text-gray-100 mb-2">
+            <RevealText
+              text="Jalan Mulawarman Gang Wonorame RT 23 No. 88, Kelurahan Manggar, Kecamatan Balikpapan Timur, Kota Balikpapan, Provinsi Kalimantan Timur"
+              trigger="viewport"
+              mode="sentence"
+              duration={0.8}
+            />
+          </p>
 
           <div className="w-full md:w-full h-50 md:h-87.5 lg:h-112.5 rounded-2xl overflow-hidden shadow-lg mb-2">
             <iframe
@@ -139,7 +160,7 @@ const DetailVenue = () => {
             />
           </div>
           <a href="https://maps.app.goo.gl/L4tebJBs7Hg1SZ8H9">
-            <p className="text-md lg:text-xl text-gray-100 text-center italic mt-2">
+            <p className="text:xs lg:text-sm text-gray-100 text-center italic mt-2">
               <RevealText
                 text="Klik untuk buka Google Maps"
                 trigger="viewport"
