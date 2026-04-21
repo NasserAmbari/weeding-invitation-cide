@@ -18,22 +18,27 @@ interface HeroProps {
 
 const Greeting = ({ trigger }: { trigger: "none" | "viewport" }) => {
   const searchParams = useSearchParams();
-  const to = searchParams.get("to");
-  const text = to
-    ? `Hallo ${to} \n, You're Invited to Celebrate The Wedding of`
-    : "You're Invited to Celebrate The Wedding of";
+  const to = searchParams.get("to") || "Tamu";
 
   return (
-    <span>
+    <div>
       <RevealText
-        text={text}
+        text={`Hallo ${to}`}
         duration={0.3}
         stagger={0.15}
         delay={8.0}
         trigger={trigger}
         mode="sentence"
       />
-    </span>
+      <RevealText
+        text={`Anda diundang untuk merayakan pernikahan`}
+        duration={0.3}
+        stagger={0.15}
+        delay={8.0}
+        trigger={trigger}
+        mode="sentence"
+      />
+    </div>
   );
 };
 
@@ -56,7 +61,7 @@ const Hero = ({ revealed = false }: HeroProps) => {
             <Suspense
               fallback={
                 <RevealText
-                  text="You're Invited to Celebrate The Wedding of"
+                  text="Anda diundang untuk merayakan pernikahan"
                   duration={0.3}
                   stagger={0.15}
                   delay={8.0}

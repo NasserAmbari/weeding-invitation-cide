@@ -1,6 +1,4 @@
 import RevealText from "@/components/ui/RevealText";
-import Image from "next/image";
-import NeumorphCard from "@/components/ui/Neuphorpcard";
 import SpotlightCard from "@/components/ui/SpotlightCard";
 import { toast } from "sonner";
 
@@ -15,13 +13,13 @@ const handleClick = async (account: string, numberAccount: string) => {
   try {
     await navigator.clipboard.writeText(numberAccount);
 
-    toast("Account number copied!", {
+    toast("Nomor Rekening telah di Copy", {
       description: `${account}, ${numberAccount}`,
       position: "top-center",
       className: `${libre.className}`,
     });
   } catch (err) {
-    console.error("Failed to copy:", err);
+    console.error("Gagal di Copy", err);
   }
 };
 
