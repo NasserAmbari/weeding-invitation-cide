@@ -21,7 +21,7 @@ const Greeting = ({ trigger }: { trigger: "none" | "viewport" }) => {
   const to = searchParams.get("to") || "Tamu";
 
   return (
-    <div>
+    <div className="flex flex-col">
       <RevealText
         text={`Hallo ${to}`}
         duration={0.3}
