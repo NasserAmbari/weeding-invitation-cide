@@ -16,7 +16,7 @@ const Quotes = () => {
           </p>
           <p className="text-sm font-bold md:text-md lg:text-lg text-center">
             <RevealText
-              text="Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat"
+              text="Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat (kebesaran Allah)"
               duration={0.3}
               stagger={0.15}
               mode="sentence"

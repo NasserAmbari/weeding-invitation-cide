@@ -143,7 +143,7 @@ const DetailVenue = () => {
             />
           </h4>
 
-          <p className="text-xs md:text-sm italict text-center text-gray-100 mb-2">
+          <p className="text-xs md:text-md italic text-center text-gray-400 mb-2">
             <RevealText
               text="Jalan Mulawarman Gang Wonorame RT 23 No. 88, Kelurahan Manggar, Kecamatan Balikpapan Timur, Kota Balikpapan, Provinsi Kalimantan Timur"
               trigger="viewport"
@@ -160,7 +160,7 @@ const DetailVenue = () => {
             />
           </div>
           <a href="https://maps.app.goo.gl/L4tebJBs7Hg1SZ8H9">
-            <p className="text:xs lg:text-sm text-gray-100 text-center italic mt-2">
+            <p className="text-xs lg:text-sm text-gray-100 text-center italic mt-2">
               <RevealText
                 text="Klik untuk buka Google Maps"
                 trigger="viewport"

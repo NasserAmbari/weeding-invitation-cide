@@ -33,7 +33,7 @@ const listAccount = [
   {
     account: "BCA",
     accountNumber: "5705067934",
-    accountName: "Cindia Dwisepta Rikaren",
+    accountName: "Cindia Dwiseptira Rikaren",
   },
 ];
 

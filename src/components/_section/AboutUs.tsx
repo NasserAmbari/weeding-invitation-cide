@@ -58,7 +58,7 @@ const AboutUs = () => {
         <div className="flex flex-col gap-4">
           <div className="flex">
             <h3
-              className={`w-[80%] lg:w-full font-bold text-6xl md:text-8xl ml-4 lg:ml-0 ${secondFont.className}`}
+              className={`w-[80%] lg:w-full font-bold text-6xl md:text-8xl ml-4 lg:ml-0 ${secondFont.className} font-bold`}
             >
               <RevealText
                 text="The Bride"
@@ -91,7 +91,7 @@ const AboutUs = () => {
               />
               <div className="md:col-span-1 flex flex-col mt-4 md:mt-12">
                 <h3
-                  className={`font-bold text-xl md:text-6xl ${secondFont.className}`}
+                  className={`font-bold text-3xl md:text-6xl ${secondFont.className} font-bold`}
                 >
                   <RevealText
                     text={`Cindia Dwiseptira Rikaren`}
@@ -103,7 +103,7 @@ const AboutUs = () => {
                   />
                 </h3>
 
-                <h4 className="text-xs md:text-2xl">
+                <h4 className="text-xs md:text-2xl text-gray-600">
                   <RevealText
                     text={`18.09.1999`}
                     duration={0.3}
@@ -114,7 +114,7 @@ const AboutUs = () => {
                   />
                 </h4>
 
-                <h3 className="text-xs md:text-2xl italic text-gray-500 mt-2">
+                <h3 className="text-[8px] md:text-2xl text-gray-500 mt-2">
                   <RevealText
                     text={`Putri Bungsu Bpk Sukardiansyah & Ibu Zalrita Retno Dewi`}
                     duration={0.3}
@@ -144,7 +144,7 @@ const AboutUs = () => {
         <div className="flex flex-col gap-4 items-center">
           <div className="flex flex-col items-end gap-4">
             <h3
-              className={`w-[70%] lg:w-full font-bold text-6xl md:text-8xl text-end whitespace-normal mr-4 lg:mr-0 ${secondFont.className}`}
+              className={`w-[70%] lg:w-full font-bold text-6xl md:text-8xl text-end whitespace-normal mr-4 lg:mr-0 ${secondFont.className} font-bold`}
             >
               <RevealText
                 text={`The Groom`}
@@ -157,7 +157,7 @@ const AboutUs = () => {
             </h3>
 
             <div className="flex flex-row gap-4 ">
-              <div className="w-[60%]">
+              <div className="w-[60%] ">
                 <Image
                   src="/Robby/2.webp"
                   alt="Robby 2"
@@ -167,7 +167,7 @@ const AboutUs = () => {
                 />
                 <div className="md:col-span-1 flex flex-col mt-4 md:mt-12 ml-4">
                   <h3
-                    className={`font-bold text-xl md:text-6xl ${secondFont.className}`}
+                    className={`font-bold text-3xl md:text-6xl ${secondFont.className} font-black`}
                   >
                     <RevealText
                       text={`Robby Bagus Setiawan`}
@@ -179,7 +179,7 @@ const AboutUs = () => {
                     />
                   </h3>
 
-                  <h4 className="text-xs md:text-2xl">
+                  <h4 className="text-xs md:text-2xl text-gray-600">
                     <RevealText
                       text={`10.08.1999`}
                       duration={0.3}
@@ -190,7 +190,7 @@ const AboutUs = () => {
                     />
                   </h4>
 
-                  <h3 className="text-xs md:text-2xl italic text-gray-500 mt-2">
+                  <h3 className="text-[8px] md:text-2xl text-gray-500 mt-1">
                     <RevealText
                       text={`Putra Bungsu Bpk Amir & Ibu Suwarsih`}
                       duration={0.3}

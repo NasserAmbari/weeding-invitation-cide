@@ -47,7 +47,7 @@ const Story = () => {
               interval={2000}
               fadeDuration={1500}
               showArrows={true}
-              className="w-[90%] md:w-[70%] h-[30vh] md:h-[40vh] lg:h-[50vh]  rounded-xl"
+              className="w-[90%] md:w-[70%] h-[30vh] md:h-[40vh] lg:h-[50vh]"
             />
           </div>
 

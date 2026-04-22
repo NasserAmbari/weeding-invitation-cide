@@ -102,7 +102,7 @@ export default function Home() {
 
         <div className="h-screen" />
 
-        <div className="relative bg-white">
+        <div className="relative bg-[#fff9f2]">
           <ScrollSnakeLine
             segments={12}
             spread={0.65}
@@ -117,11 +117,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* DetailVenue after Gallery */}
-        <div className="relative z-10  bg-gray-950">
+        <div className="relative z-10 bg-gray-950">
           <div className="flex flex-col gap-8">
             <DetailVenue />
-            {/* <CountdownTimer targetDate={"2026-04-26T08:00:00"} /> */}
             <Gift />
             <RSVP />
             <Footer />
