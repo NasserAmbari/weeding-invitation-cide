@@ -10,8 +10,8 @@ const goToMap = () => {
   window.open(linkGoogleMap, "_blank");
 };
 
-import { Parisienne } from "next/font/google";
-const secondFont = Parisienne({
+import { Luxurious_Script } from "next/font/google";
+const secondFont = Luxurious_Script({
   subsets: ["latin"],
   weight: "400",
 });
@@ -19,10 +19,10 @@ const secondFont = Parisienne({
 const DetailVenue = () => {
   return (
     <div className="flex flex-col gap-12 px-8 py-12 justify-center items-center">
-      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-24">
+      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-12">
         <div className="flex flex-col gap-4">
           <h3
-            className={`text-5xl md:text-7xl italic text-center text-gray-100 ${secondFont.className}`}
+            className={`text-5xl md:text-7xl italic text-center text-gray-100 font-bold ${secondFont.className}`}
           >
             <RevealText
               text="Akad"
@@ -74,7 +74,11 @@ const DetailVenue = () => {
             </div>
           </div>
         </div>
-
+        <div className="flex items-center gap-3 w-35 opacity-100 scale-x-100 mx-auto">
+          <div className="flex-1 h-px bg-white/50" />
+          <div className="size-0.75 rounded-full bg-white/50 rotate-45" />
+          <div className="flex-1 h-px bg-white/50" />
+        </div>
         <div className="flex flex-col gap-4">
           <h3
             className={`text-5xl md:text-7xl italic text-center text-gray-100 ${secondFont.className}`}
@@ -129,8 +133,17 @@ const DetailVenue = () => {
             </div>
           </div>
         </div>
-
+        <div className="flex items-center gap-3 w-35 opacity-100 scale-x-100 mx-auto">
+          <div className="flex-1 h-px bg-white/50" />
+          <div className="size-0.75 rounded-full bg-white/50 rotate-45" />
+          <div className="flex-1 h-px bg-white/50" />
+        </div>
         <CountdownTimer targetDate={"2026-05-02T10:00:00"} />
+        <div className="flex items-center gap-3 w-35 opacity-100 scale-x-100 mx-auto">
+          <div className="flex-1 h-px bg-white/50" />
+          <div className="size-0.75 rounded-full bg-white/50 rotate-45" />
+          <div className="flex-1 h-px bg-white/50" />
+        </div>
         <div className="flex flex-col items-center">
           <h4
             className={`text-5xl md:text-7xl italic text-center text-gray-100 ${secondFont.className} mb-2`}

@@ -1,15 +1,15 @@
 import RevealText from "@/components/ui/RevealText";
 import Image from "next/image";
 
-import { Parisienne } from "next/font/google";
-const secondFont = Parisienne({
+import { Luxurious_Script } from "next/font/google";
+const secondFont = Luxurious_Script({
   subsets: ["latin"],
   weight: "400",
 });
 
 const AboutUs = () => {
   return (
-    <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col gap-16 lg:gap-16 text-black justify-center items-center mx-auto">
+    <div className="w-full md:w-[90%] lg:w-[75%] flex flex-col gap-8 lg:gap-16 text-black justify-center items-center mx-auto">
       <div className="flex flex-col" id="greeting-section">
         <div className="flex flex-col justify-around px-4">
           <p className="text-xs font-bold md:text-2xl text-center">
@@ -54,11 +54,17 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-30 lg:gap-40">
-        <div className="flex flex-col gap-4">
+      <div className="flex items-center gap-3 w-35 opacity-100 scale-x-100 mx-auto">
+        <div className="flex-1 h-px bg-black" />
+        <div className="size-0.75 rounded-full bg-black rotate-45" />
+        <div className="flex-1 h-px bg-black" />
+      </div>
+
+      <div className="flex flex-col gap-15 lg:gap-20">
+        <div className="flex flex-col gap-2">
           <div className="flex">
             <h3
-              className={`w-[80%] lg:w-full font-bold text-6xl md:text-8xl ml-4 lg:ml-0 ${secondFont.className} font-bold`}
+              className={`w-[80%] lg:w-full font-bold text-7xl md:text-8xl ml-4 lg:ml-0 ${secondFont.className} font-bold`}
             >
               <RevealText
                 text="The Bride"
@@ -130,21 +136,10 @@ const AboutUs = () => {
           </div>
         </div>
 
-        {/* <div className="w-full flex justify-center">
-          <Image
-            src="/Ring.png"
-            alt="ring"
-            width={200}
-            height={100}
-            priority
-            className="w-auto h-auto"
-          />
-        </div> */}
-
         <div className="flex flex-col gap-4 items-center">
-          <div className="flex flex-col items-end gap-4">
+          <div className="flex flex-col items-end gap-2">
             <h3
-              className={`w-[70%] lg:w-full font-bold text-6xl md:text-8xl text-end whitespace-normal mr-4 lg:mr-0 ${secondFont.className} font-bold`}
+              className={`w-[70%] lg:w-full font-bold text-7xl md:text-8xl text-end whitespace-normal mr-4 lg:mr-0 ${secondFont.className}`}
             >
               <RevealText
                 text={`The Groom`}

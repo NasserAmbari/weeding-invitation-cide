@@ -1,8 +1,8 @@
 import RevealText from "../ui/RevealText";
 import Image from "next/image";
 
-import { Parisienne } from "next/font/google";
-const secondFont = Parisienne({
+import { Luxurious_Script } from "next/font/google";
+const secondFont = Luxurious_Script({
   subsets: ["latin"],
   weight: "400",
 });
@@ -24,14 +24,14 @@ const Footer = () => {
         <div
           className={`absolute inset-0 flex flex-col items-center justify-center gap-2 text-white text-center px-8  ${secondFont.className}`}
         >
-          <div className="text-xl md:text-6xl lg:text-8xl">
+          <div className="w-[85%] lg:w-full font-bold text-2xl md:text-8xl text-center whitespace-normal mr-4 lg:mr-0">
             <RevealText
               text="Thank you for your attendance and support."
               trigger="viewport"
               duration={0.5}
             />
           </div>
-          <div className="text-lg md:text-5xl lg:text-6xl flex flex-col">
+          <div className="w-[85%] lg:w-full font-bold text-lg md:text-8xl text-center whitespace-normal mr-4 lg:mr-0 ">
             <RevealText text="Love," trigger="viewport" duration={0.5} />
             <RevealText
               text="Cindia & Robby"

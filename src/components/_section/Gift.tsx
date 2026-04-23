@@ -9,8 +9,8 @@ const libre = Libre_Baskerville({
   subsets: ["latin"],
 });
 
-import { Parisienne } from "next/font/google";
-const secondFont = Parisienne({
+import { Luxurious_Script } from "next/font/google";
+const secondFont = Luxurious_Script({
   subsets: ["latin"],
   weight: "400",
 });
@@ -42,7 +42,7 @@ const Gift = () => {
     <div className="flex flex-col gap-20 px-4 py-8 justify-center items-center">
       <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-4">
         <h4
-          className={`text-5xl md:text-7xl italic text-center text-gray-100 mb-2 ${secondFont.className}`}
+          className={`text-5xl md:text-7xl italic text-center font-black whitespace-normal text-gray-100 mb-2 ${secondFont.className}`}
         >
           <RevealText
             text="Gift"

@@ -120,8 +120,19 @@ export default function Home() {
         <div className="relative z-10 bg-gray-950">
           <div className="flex flex-col gap-8">
             <DetailVenue />
+            <div className="flex items-center gap-3 w-35 opacity-100 scale-x-100 mx-auto">
+              <div className="flex-1 h-px bg-white/50" />
+              <div className="size-0.75 rounded-full bg-white/50 rotate-45" />
+              <div className="flex-1 h-px bg-white/50" />
+            </div>
             <Gift />
+            <div className="flex items-center gap-3 w-35 opacity-100 scale-x-100 mx-auto">
+              <div className="flex-1 h-px bg-white/50" />
+              <div className="size-0.75 rounded-full bg-white/50 rotate-45" />
+              <div className="flex-1 h-px bg-white/50" />
+            </div>
             <RSVP />
+
             <Footer />
           </div>
         </div>

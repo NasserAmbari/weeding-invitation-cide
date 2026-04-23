@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import RevealText from "@/components/ui/RevealText";
 import { createRSVP } from "@/service/api";
 
-import { Parisienne } from "next/font/google";
-const secondFont = Parisienne({
+import { Luxurious_Script } from "next/font/google";
+const secondFont = Luxurious_Script({
   subsets: ["latin"],
   weight: "400",
 });
@@ -115,10 +115,10 @@ const RSVP = () => {
 
       <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-4">
         <h3
-          className={`text-4xl md:text-6xl italic text-center text-gray-100 mb-2 ${secondFont.className}`}
+          className={`text-5xl md:text-7xl italic font-bold text-center text-gray-100 mb-2 ${secondFont.className}`}
         >
           <RevealText
-            text="RSVP"
+            text="R S V P"
             trigger="viewport"
             mode="sentence"
             duration={0.8}
@@ -239,11 +239,15 @@ const RSVP = () => {
           </button>
         </form>
       </div>
-
+      <div className="flex items-center gap-3 w-35 opacity-100 scale-x-100 mx-auto">
+        <div className="flex-1 h-px bg-white/50" />
+        <div className="size-0.75 rounded-full bg-white/50 rotate-45" />
+        <div className="flex-1 h-px bg-white/50" />
+      </div>
       {/* Messages Section */}
       <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-4 mt-12">
         <h3
-          className={`text-4xl md:text-6xl italic text-center text-gray-100 mb-2 ${secondFont.className}`}
+          className={`text-5xl md:text-7xl font-bold italic text-center text-gray-100 mb-2 ${secondFont.className}`}
         >
           <RevealText
             text="Wishes & Messages"
