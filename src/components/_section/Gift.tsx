@@ -39,7 +39,7 @@ const listAccount = [
 
 const Gift = () => {
   return (
-    <div className="flex flex-col gap-20 px-4 py-8 justify-center items-center">
+    <div className="flex flex-col gap-20 px-8 py-12 justify-center items-center">
       <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-4">
         <h4
           className={`text-5xl md:text-7xl italic text-center font-black whitespace-normal text-gray-100 mb-2 ${secondFont.className}`}

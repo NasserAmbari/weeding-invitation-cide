@@ -245,7 +245,7 @@ const RSVP = () => {
         <div className="flex-1 h-px bg-white/50" />
       </div>
       {/* Messages Section */}
-      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-4 mt-12">
+      <div className="w-full md:w-[90%] lg:w-[60%] flex flex-col gap-4np">
         <h3
           className={`text-5xl md:text-7xl font-bold italic text-center text-gray-100 mb-2 ${secondFont.className}`}
         >
