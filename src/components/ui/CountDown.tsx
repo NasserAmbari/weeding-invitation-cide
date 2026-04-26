@@ -7,10 +7,8 @@ interface CountdownTimerProps {
 }
 
 export function CountdownTimer({ targetDate }: CountdownTimerProps) {
-  // Fungsi untuk menghitung sisa waktu
   const calculateTimeLeft = () => {
     const difference = new Date(targetDate).getTime() - new Date().getTime();
-
     if (difference > 0) {
       return {
         days: Math.floor(difference / (1000 * 60 * 60 * 24)),
@@ -19,15 +17,21 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
         seconds: Math.floor((difference / 1000) % 60),
       };
     }
-
-    // Jika waktu sudah habis, kembalikan 0
     return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  // ✅ Init dengan null, bukan calculateTimeLeft()
+  const [timeLeft, setTimeLeft] = useState<{
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+  } | null>(null);
 
-  // useEffect untuk mengupdate timer setiap 1 detik
   useEffect(() => {
+    // ✅ Hitung pertama kali setelah client mount
+    setTimeLeft(calculateTimeLeft());
+
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
@@ -35,10 +39,20 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
     return () => clearInterval(timer);
   }, [targetDate]);
 
-  // Fungsi untuk menambahkan angka 0 di depan jika angka < 10 (misal: 07)
-  const formatNumber = (num: number) => {
-    return num.toString().padStart(2, "0");
-  };
+  const formatNumber = (num: number) => num.toString().padStart(2, "0");
+
+  // ✅ Tampilkan placeholder saat belum mount (hindari hydration mismatch)
+  if (!timeLeft) {
+    return (
+      <div className="flex flex-col items-center justify-center p-4 text-gray-100">
+        <div className="flex px-4 items-center justify-center gap-3 md:gap-4">
+          {["DAYS", "HOURS", "MINUTES", "SECONDS"].map((label) => (
+            <TimeBox key={label} value="--" label={label} />
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center justify-center p-4 text-gray-100">
@@ -50,9 +64,8 @@ export function CountdownTimer({ targetDate }: CountdownTimerProps) {
           delay={0.4}
           mode="sentence"
           trigger="viewport"
-        ></RevealText>
+        />
       </h2>
-
       <div className="flex px-4 items-center justify-center gap-3 md:gap-4 text-black">
         <TimeBox value={formatNumber(timeLeft.days)} label="DAYS" />
         <TimeBox value={formatNumber(timeLeft.hours)} label="HOURS" />
